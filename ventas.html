@@ -1,33 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Calculadora de Comisiones</title>
-    <link rel="stylesheet" href="ventas.css">
-    <script src="ventas.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Comisiones - MEOT</title>
+  <link rel="stylesheet" href="ventas.css">
 </head>
 <body>
 
-    <div class="contenedor">
-        <h1>Calculadora de Comisiones</h1>
+<div class="contenedor-principal">
+  
+  <!-- Header -->
+  <header class="encabezado">
+    <div class="icono-header">💼</div>
+    <h1>Calculadora de Comisiones</h1>
+    <p class="subtitulo">Sistema de cálculo de ventas y comisiones</p>
+  </header>
 
-        <label>Salario Base:</label>
-        <input type="text" id="txtSueldoBase">
-
-        <label>Número de ventas:</label>
-        <input type="text" id="txtVentas">
-
-        <label>Precio del producto:</label>
-        <input type="text" id="txtPrecio">
-
-        <button onclick="calcular()">Calcular Comisión</button>
-
-        <h2>Resultados</h2>
-        <p>Salario Base: <span id="spSueldoBase"></span></p>
-        <p>Comisión: <span id="spComision"></span></p>
-        <p>Total: <span id="spTotal"></span></p>
+  <!-- Formulario de Entrada -->
+  <section class="formulario-seccion">
+    <div class="input-group">
+      <label for="txtSueldoBase">
+        <span class="icono-label">💰</span>
+        Salario Base ($)
+      </label>
+      <input type="number" id="txtSueldoBase" placeholder="Ej: 500" min="0" step="0.01">
     </div>
 
+    <div class="input-group">
+      <label for="txtVentas">
+        <span class="icono-label">📊</span>
+        Número de Ventas
+      </label>
+      <input type="number" id="txtVentas" placeholder="Ej: 10" min="0">
+      <small class="hint">Ventas base: 5 (comisión aplica a partir de la venta 6)</small>
+    </div>
+
+    <div class="input-group">
+      <label for="txtPrecio">
+        <span class="icono-label">️</span>
+        Precio del Producto ($)
+      </label>
+      <input type="number" id="txtPrecio" placeholder="Ej: 50" min="0" step="0.01">
+    </div>
+
+    <button onclick="calcular()" class="btn-calcular">
+      <span class="icono-btn">🧮</span>
+      Calcular Comisión
+    </button>
+  </section>
+
+  <!-- Resultados -->
+  <section class="resultados-seccion">
+    <h2 class="titulo-resultados">📋 Resultados</h2>
     
+    <div class="grid-resultados">
+      <div class="resultado-card sueldo">
+        <div class="resultado-icono">💵</div>
+        <div class="resultado-info">
+          <small>Salario Base</small>
+          <strong id="spSueldoBase">$0.00</strong>
+        </div>
+      </div>
+
+      <div class="resultado-card comision">
+        <div class="resultado-icono">🎁</div>
+        <div class="resultado-info">
+          <small>Comisión (10%)</small>
+          <strong id="spComision">$0.00</strong>
+        </div>
+      </div>
+
+      <div class="resultado-card total destacado">
+        <div class="resultado-icono">💎</div>
+        <div class="resultado-info">
+          <small>Total a Pagar</small>
+          <strong id="spTotal">$0.00</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="pie-pagina">
+    <p>© 2026 Manuel Otacoma (MeoT) - Programando con JavaScript</p>
+  </footer>
+
+</div>
+
+<script src="ventas.js"></script>
 </body>
 </html>
